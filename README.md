@@ -7,7 +7,7 @@ Bifid Cypher Implementation Using Python
 Create a file with your plaintext
 
 ```bash
-    python bifid.py [filename]`
+    python bifid.py [filename]
 ```
 
 Check the output file with the encrypted and decrypted text
@@ -21,7 +21,7 @@ Input file creation:
     echo "Hello World" > plaintext.txt
 ```
 
-Calling bifid.py:
+Executing bifid.py file:
 
 ```bash
     python3 bifid.py plaintext.txt
