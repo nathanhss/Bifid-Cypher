@@ -2,34 +2,36 @@
 
 Bifid Cypher Implementation Using Python
 
-## How to use/test code
-
-Create a file with your plaintext
-
-```bash
-    python bifid.py [filename]
-```
-
-Check the output file with the encrypted and decrypted text
-
 ## Example of usage
 
-Input file creation:
+Create plaintext file:
 
 ```bash
     touch plaintext.txt
     echo "Hello World" > plaintext.txt
 ```
 
-Executing bifid.py file:
+Create a key of your preferred:
 
 ```bash
-    python3 bifid.py plaintext.txt
+    touch key.key
+    echo "My key" > key.key
 ```
 
-Output file:
+Calling bifid-encrypt.py:
 
 ```bash
-    MVCCSKSICQ
-    HELLOWORLD
+    python3 bifid-encrypt.py plaintext.txt key.key
 ```
+
+It's will return another file called `encrypted_text.txt`
+
+Calling bifid-decrypt.py:
+
+```bash
+    python3 bifid-decrypt.py encrypted_text.txt key.key
+```
+
+It's will return another file called `output.txt`
+
+Note: the output text doesn't have any spacing like the original message, so you need to interpret it yourself
