@@ -1,6 +1,5 @@
 import sys
-import hashlib
-
+from utils import Utils
 
 class BifidCipher:
     def __init__(self):
@@ -18,26 +17,6 @@ class BifidCipher:
             reverse_square[(row + 1, col + 1)] = letter
 
         return square, reverse_square
-    
-    @staticmethod
-    def getTextAndKey(filePath, keyPath):
-        textFile = open(filePath, "r")
-        keyFile = open(keyPath, "r")
-
-        sha256 = hashlib.sha256()
-
-        encryptedText = textFile.read()
-        sha256.update((keyFile.read()).encode('utf8'))
-        keyValue = sha256.hexdigest()
-
-        keySum = 0
-        for n in str(int(keyValue, 16)):
-            keySum += int(n)
-        
-        textFile.close()
-        keyFile.close()
-
-        return encryptedText, keySum
     
     @staticmethod
     def shift_array(definer, original):
@@ -85,7 +64,7 @@ if __name__ == "__main__":
     filePath = sys.argv[1]
     keyPath = sys.argv[2]
 
-    plainText, keyValue = cipher.getTextAndKey(filePath, keyPath)
+    plainText, keyValue = Utils.getTextAndKey(filePath, keyPath)
 
     encryptedText = cipher.encrypt(plainText, keyValue)
 
